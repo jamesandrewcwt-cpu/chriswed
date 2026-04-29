@@ -13,10 +13,24 @@ export const weddingData = {
     time: "6:00 PM onwards", // Added a standard reception time as it wasn't on the card
     venue: "Tejas Mahal",
     address: "Thali road, Kuttai Thidal, Udumalaipettai, Tamil Nadu 642126",
-    googleMapsLink: "https://maps.google.com/maps?q=Tejas+Mahal+Udumalaipettai",
+    googleMapsLink: "https://share.google/iiAR6fwMvGppcMwjV",
     landmark: "Kuttai Thidal",
     parking: "Ample parking space available at the venue premises.",
     marriageDate: "May 18, 2026",
+  },
+  travel: {
+    air: {
+      airport: "Coimbatore International Airport (CJB)",
+      distance: "approx. 75 km from Udumalaipettai",
+      description: "Convenient for guests flying in from major cities."
+    },
+    train: {
+      station: "Udumalaipettai Railway Station (UDT)",
+      description: "The venue is within 5-10 minutes drive from the station."
+    },
+    road: {
+      description: "Udumalaipettai is well connected by NH 209. Regular buses are available from Coimbatore, Pollachi, and Palani."
+    }
   },
   story: {
     title: "A Meeting of Two Families",

@@ -13,7 +13,7 @@ export default function Navbar() {
       
       <div className="flex items-center gap-4 md:gap-10">
         <Link to="/" className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.4em] text-white/40 hover:text-white transition-colors">Invitation</Link>
-        <Link to="/gallery" className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.4em] text-white/40 hover:text-white transition-colors">Gallery</Link>
+
         <Link to="/travel" className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.4em] text-white/40 hover:text-white transition-colors">Travel</Link>
       </div>
     </motion.nav>

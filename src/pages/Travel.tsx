@@ -36,19 +36,51 @@ export default function Travel() {
           ))}
         </div>
 
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="mt-24 p-12 bg-white/[0.02] border border-white/5 rounded-3xl"
-        >
-          <h3 className="text-xl font-display text-white mb-6">Transport Notes</h3>
-          <p className="text-white/40 font-light leading-relaxed max-w-2xl">
-            Udumalaipettai is well-connected by road and rail. The nearest major airport is Coimbatore (CJB), approximately 70km away. We recommend booking local taxis or using our dedicated shuttle if you are staying at the suggested hotels.
-          </p>
-        </motion.div>
+        <div className="mt-32 space-y-24">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-12"
+          >
+            {/* Air */}
+            <div className="space-y-6">
+              <h3 className="text-xl font-display text-white border-b border-white/10 pb-4">By Air</h3>
+              <div className="space-y-2">
+                <p className="text-white font-medium">{weddingData.travel.air.airport}</p>
+                <p className="text-white/40 font-light text-sm">{weddingData.travel.air.distance}</p>
+                <p className="text-white/40 font-light text-sm mt-4 leading-relaxed">
+                  {weddingData.travel.air.description}
+                </p>
+              </div>
+            </div>
+
+            {/* Train */}
+            <div className="space-y-6">
+              <h3 className="text-xl font-display text-white border-b border-white/10 pb-4">By Train</h3>
+              <div className="space-y-2">
+                <p className="text-white font-medium">{weddingData.travel.train.station}</p>
+                <p className="text-white/40 font-light text-sm leading-relaxed">
+                  {weddingData.travel.train.description}
+                </p>
+              </div>
+            </div>
+
+            {/* Road */}
+            <div className="space-y-6">
+              <h3 className="text-xl font-display text-white border-b border-white/10 pb-4">By Road</h3>
+              <div className="space-y-2">
+                <p className="text-white/40 font-light text-sm leading-relaxed">
+                  {weddingData.travel.road.description}
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </div>
-      <Footer />
+      <div className="mt-24">
+        <Footer />
+      </div>
     </div>
   );
 }
