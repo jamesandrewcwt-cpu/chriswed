@@ -1,22 +1,22 @@
 export const weddingData = {
   couple: {
-    bride: "Sandhiya",
-    groom: "Christoper",
-    brideFullName: "Sandhiya",
-    groomFullName: "Christoper",
+    bride: "Christoper",
+    groom: "Sandhiya",
+    brideFullName: "Christoper",
+    groomFullName: "Sandhiya",
     tagline: "Together with their families",
   },
   event: {
-    date: "May 17, 2026",
+    receptionDate: "May 17, 2026",
+    marriageDate: "May 18, 2026",
     day: "Sunday",
     year: "2026",
-    time: "6:00 PM onwards", // Added a standard reception time as it wasn't on the card
+    time: "6:00 PM onwards", 
     venue: "Tejas Mahal",
     address: "Thali road, Kuttai Thidal, Udumalaipettai, Tamil Nadu 642126",
     googleMapsLink: "https://share.google/iiAR6fwMvGppcMwjV",
     landmark: "Kuttai Thidal",
     parking: "Ample parking space available at the venue premises.",
-    marriageDate: "May 18, 2026",
   },
   travel: {
     air: {

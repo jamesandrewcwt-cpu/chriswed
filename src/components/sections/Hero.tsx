@@ -36,30 +36,28 @@ export default function Hero() {
                 {weddingData.couple.tagline}
               </p>
               
-              <h1 className="text-4xl md:text-9xl font-display text-accent-primary mb-12 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 transition-colors duration-500">
+              <h1 className="text-4xl md:text-9xl font-display text-accent-primary mb-16 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 transition-colors duration-500">
                 <span>{weddingData.couple.bride}</span>
                 <span className="text-2xl md:text-4xl font-sans italic opacity-20">&</span>
                 <span>{weddingData.couple.groom}</span>
               </h1>
               
-              <div className="flex flex-col items-center">
+              <div className="flex flex-col items-center space-y-4">
                 <motion.div 
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
                   transition={{ delay: 1, duration: 1.5, ease: "circOut" }}
-                  className="w-12 h-px bg-border-subtle mb-12" 
+                  className="w-12 h-px bg-border-subtle mb-8" 
                 />
-                <p className="text-lg md:text-xl font-light tracking-[0.3em] text-accent-secondary transition-colors duration-500">
-                  {weddingData.event.date.toUpperCase()}
-                </p>
-                <motion.p 
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 1.5, duration: 1 }}
-                  className="mt-4 text-xs md:text-sm uppercase tracking-[0.4em] text-accent-secondary opacity-50 italic transition-colors duration-500"
-                >
-                  Followed by marriage on {weddingData.event.marriageDate}
-                </motion.p>
+                
+                <div className="space-y-4 text-center">
+                  <p className="text-lg md:text-2xl font-bold tracking-[0.2em] text-accent-primary uppercase transition-colors duration-500">
+                    Reception on {weddingData.event.receptionDate.toUpperCase()}
+                  </p>
+                  <p className="text-sm md:text-base font-semibold uppercase tracking-[0.3em] text-accent-secondary transition-colors duration-500">
+                    Followed by marriage on {weddingData.event.marriageDate.toUpperCase()}
+                  </p>
+                </div>
               </div>
             </motion.div>
 
