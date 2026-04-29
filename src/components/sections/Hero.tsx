@@ -51,11 +51,17 @@ export default function Hero() {
                 />
                 
                 <div className="space-y-4 text-center">
-                  <p className="text-lg md:text-2xl font-bold tracking-[0.2em] text-accent-primary uppercase transition-colors duration-500">
-                    Reception on {weddingData.event.receptionDate.toUpperCase()}
+                  <p className="text-lg md:text-2xl font-bold tracking-[0.2em] text-accent-primary uppercase transition-colors duration-500 flex flex-col md:flex-row md:gap-3 items-center justify-center">
+                    <span>Reception on</span>
+                    <span>{weddingData.events.reception.date.toUpperCase()}</span>
                   </p>
-                  <p className="text-sm md:text-base font-semibold uppercase tracking-[0.3em] text-accent-secondary transition-colors duration-500">
-                    Followed by marriage on {weddingData.event.marriageDate.toUpperCase()}
+                  <p className="text-sm md:text-base font-semibold uppercase tracking-[0.3em] text-accent-secondary transition-colors duration-500 flex flex-col md:flex-row md:gap-2 items-center justify-center">
+                    <span>Followed by marriage on</span>
+                    <span className="flex flex-col md:flex-row md:gap-2 items-center">
+                      <span>{weddingData.events.marriage.date.toUpperCase()}</span>
+                      <span className="hidden md:inline">@</span>
+                      <span>{weddingData.events.marriage.time}</span>
+                    </span>
                   </p>
                 </div>
               </div>

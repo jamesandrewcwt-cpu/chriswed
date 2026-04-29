@@ -6,18 +6,27 @@ export const weddingData = {
     groomFullName: "Sandhiya",
     tagline: "Together with their families",
   },
-  event: {
-    receptionDate: "May 17, 2026",
-    marriageDate: "May 18, 2026",
-    day: "Sunday",
-    year: "2026",
-    time: "6:00 PM onwards", 
-    venue: "Tejas Mahal",
-    address: "Thali road, Kuttai Thidal, Udumalaipettai, Tamil Nadu 642126",
-    googleMapsLink: "https://share.google/iiAR6fwMvGppcMwjV",
-    landmark: "Kuttai Thidal",
-    parking: "Ample parking space available at the venue premises.",
+  events: {
+    reception: {
+      title: "Reception",
+      date: "May 17, 2026",
+      time: "6:00 PM onwards",
+      venue: "Tejas Mahal",
+      address: "Thali road, Kuttai Thidal, Udumalaipettai",
+      link: "https://share.google/iiAR6fwMvGppcMwjV",
+    },
+    marriage: {
+      title: "Marriage",
+      date: "May 18, 2026",
+      time: "8:00 AM",
+      venue: "CSI Immanuel Church",
+      address: "Udumalaipettai",
+      link: "https://share.google/UavwvZlPL2rnr83VU",
+    }
   },
+  year: "2026",
+  landmark: "Kuttai Thidal",
+  parking: "Ample parking space available at the venue premises.",
   travel: {
     air: {
       airport: "Coimbatore International Airport (CJB)",

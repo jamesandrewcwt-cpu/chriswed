@@ -1,30 +1,57 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MapPin, Clock, ExternalLink, X } from 'lucide-react';
+import { MapPin, Clock, ExternalLink, X, Church, GlassWater } from 'lucide-react';
 import { weddingData } from '../../data/content';
 
 export default function Venue() {
   const [showMap, setShowMap] = useState(false);
+  const [activeEvent, setActiveEvent] = useState<'reception' | 'marriage'>('reception');
+
+  const currentEvent = weddingData.events[activeEvent];
 
   return (
     <section className="section-container bg-bg-primary transition-colors duration-500">
+      {/* Event Toggle */}
+      <div className="flex justify-center mb-20">
+        <div className="inline-flex p-1 bg-glass-bg border border-border-subtle rounded-full backdrop-blur-xl">
+          <button
+            onClick={() => { setActiveEvent('reception'); setShowMap(false); }}
+            className={`px-8 py-2.5 rounded-full text-xs uppercase tracking-widest transition-all duration-500 flex items-center gap-2 ${
+              activeEvent === 'reception' ? 'bg-accent-primary text-bg-primary' : 'text-accent-secondary hover:text-accent-primary'
+            }`}
+          >
+            <GlassWater className="w-3.5 h-3.5" /> Reception
+          </button>
+          <button
+            onClick={() => { setActiveEvent('marriage'); setShowMap(false); }}
+            className={`px-8 py-2.5 rounded-full text-xs uppercase tracking-widest transition-all duration-500 flex items-center gap-2 ${
+              activeEvent === 'marriage' ? 'bg-accent-primary text-bg-primary' : 'text-accent-secondary hover:text-accent-primary'
+            }`}
+          >
+            <Church className="w-3.5 h-3.5" /> Marriage
+          </button>
+        </div>
+      </div>
+
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 md:gap-24">
         {/* Title Block */}
         <div className="lg:col-span-5">
           <motion.div
+            key={activeEvent}
             initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.2 }}
           >
             <span className="text-accent-secondary uppercase tracking-[0.4em] text-[10px] mb-8 block opacity-70">
-              The Location
+              The {currentEvent.title}
             </span>
             <h2 className="text-5xl md:text-7xl font-display text-accent-primary mb-12 italic transition-colors duration-500">
-              Where we meet.
+              {activeEvent === 'reception' ? 'Where we celebrate.' : 'Where we unite.'}
             </h2>
             <p className="text-accent-secondary font-light leading-relaxed mb-12 max-w-md opacity-80">
-              A grand setting for a grand occasion. Join us at the heart of the celebration.
+              {activeEvent === 'reception' 
+                ? 'Join us for an evening of joy, family, and togetherness as we celebrate our new beginning.' 
+                : 'A sacred union in the presence of God. We invite you to witness our vows and share in our prayers.'}
             </p>
             
             <div className="space-y-10">
@@ -34,8 +61,8 @@ export default function Venue() {
                 </div>
                 <div>
                   <h4 className="text-accent-primary text-sm uppercase tracking-widest mb-2 font-medium">Venue</h4>
-                  <p className="text-accent-primary/80 font-light text-lg">{weddingData.event.venue}</p>
-                  <p className="text-accent-secondary font-light text-sm mt-2">{weddingData.event.address}</p>
+                  <p className="text-accent-primary/80 font-light text-lg">{currentEvent.venue}</p>
+                  <p className="text-accent-secondary font-light text-sm mt-2">{currentEvent.address}</p>
                 </div>
               </div>
 
@@ -44,15 +71,16 @@ export default function Venue() {
                   <Clock className="w-4 h-4 text-accent-secondary" />
                 </div>
                 <div>
-                  <h4 className="text-accent-primary text-sm uppercase tracking-widest mb-2 font-medium">Arrival</h4>
-                  <p className="text-accent-primary/80 font-light text-lg">{weddingData.event.time}</p>
+                  <h4 className="text-accent-primary text-sm uppercase tracking-widest mb-2 font-medium">Timing</h4>
+                  <p className="text-accent-primary/80 font-light text-lg">{currentEvent.time}</p>
+                  <p className="text-accent-secondary font-light text-sm mt-2">{currentEvent.date}</p>
                 </div>
               </div>
             </div>
 
             <div className="mt-16">
               <a 
-                href={weddingData.event.googleMapsLink}
+                href={currentEvent.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="signature-link text-sm uppercase tracking-[0.3em] font-medium inline-flex items-center gap-4"
@@ -75,7 +103,7 @@ export default function Venue() {
             <AnimatePresence mode="wait">
               {!showMap ? (
                 <motion.div
-                  key="preview"
+                  key={`${activeEvent}-preview`}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
@@ -88,9 +116,9 @@ export default function Venue() {
                   
                   <div className="relative z-10 text-center">
                     <div className="w-32 h-32 rounded-full border border-border-subtle flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform duration-1000">
-                      <MapPin className="w-8 h-8 text-accent-primary/10" />
+                      {activeEvent === 'reception' ? <GlassWater className="w-8 h-8 text-accent-primary/10" /> : <Church className="w-8 h-8 text-accent-primary/10" />}
                     </div>
-                    <p className="text-accent-primary/20 font-display italic text-2xl transition-colors duration-500">{weddingData.event.venue}</p>
+                    <p className="text-accent-primary/20 font-display italic text-2xl transition-colors duration-500">{currentEvent.venue}</p>
                   </div>
 
                   {/* Interaction Layer */}
@@ -103,7 +131,7 @@ export default function Venue() {
                 </motion.div>
               ) : (
                 <motion.div
-                  key="map"
+                  key={`${activeEvent}-map`}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
@@ -111,7 +139,7 @@ export default function Venue() {
                 >
                   <iframe
                     title="Venue Map"
-                    src={`https://www.google.com/maps?q=${encodeURIComponent(weddingData.event.venue + ' ' + weddingData.event.address)}&output=embed`}
+                    src={`https://www.google.com/maps?q=${encodeURIComponent(currentEvent.venue + ' ' + currentEvent.address)}&output=embed`}
                     className="w-full h-full border-0 grayscale invert-[0.9] hue-rotate-180"
                     allowFullScreen
                     loading="lazy"
