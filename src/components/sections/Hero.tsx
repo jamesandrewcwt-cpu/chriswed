@@ -14,9 +14,9 @@ export default function Hero() {
   }, [isRevealed]);
 
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-black flex items-center justify-center">
+    <section className="relative h-screen w-full overflow-hidden bg-bg-primary flex items-center justify-center transition-colors duration-500">
       {/* Background Reveal Layer */}
-      <div className="absolute inset-0 bg-[#050505]" />
+      <div className="absolute inset-0 bg-bg-secondary" />
 
       {/* Main Content Reveal */}
       <AnimatePresence>
@@ -32,11 +32,11 @@ export default function Hero() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.4, duration: 1.2 }}
             >
-              <p className="text-[10px] uppercase tracking-[0.6em] text-white/40 mb-8 font-light">
+              <p className="text-[10px] uppercase tracking-[0.6em] text-accent-secondary mb-8 font-light opacity-60">
                 {weddingData.couple.tagline}
               </p>
               
-              <h1 className="text-4xl md:text-9xl font-display text-white mb-12 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8">
+              <h1 className="text-4xl md:text-9xl font-display text-accent-primary mb-12 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 transition-colors duration-500">
                 <span>{weddingData.couple.bride}</span>
                 <span className="text-2xl md:text-4xl font-sans italic opacity-20">&</span>
                 <span>{weddingData.couple.groom}</span>
@@ -47,16 +47,16 @@ export default function Hero() {
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
                   transition={{ delay: 1, duration: 1.5, ease: "circOut" }}
-                  className="w-12 h-px bg-white/20 mb-12" 
+                  className="w-12 h-px bg-border-subtle mb-12" 
                 />
-                <p className="text-lg md:text-xl font-light tracking-[0.3em] text-white/60">
+                <p className="text-lg md:text-xl font-light tracking-[0.3em] text-accent-secondary transition-colors duration-500">
                   {weddingData.event.date.toUpperCase()}
                 </p>
                 <motion.p 
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 1.5, duration: 1 }}
-                  className="mt-4 text-xs md:text-sm uppercase tracking-[0.4em] text-white/30 italic"
+                  className="mt-4 text-xs md:text-sm uppercase tracking-[0.4em] text-accent-secondary opacity-50 italic transition-colors duration-500"
                 >
                   Followed by marriage on {weddingData.event.marriageDate}
                 </motion.p>
@@ -73,7 +73,7 @@ export default function Hero() {
               <motion.div
                 animate={{ y: [0, 8, 0] }}
                 transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-                className="w-px h-12 bg-gradient-to-b from-white/20 to-transparent"
+                className="w-px h-12 bg-gradient-to-b from-border-subtle to-transparent"
               />
             </motion.div>
           </motion.div>
@@ -87,7 +87,7 @@ export default function Hero() {
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1.2, ease: "easeInOut" }}
-            className="absolute inset-0 z-[100] bg-black flex items-center justify-center"
+            className="absolute inset-0 z-[100] bg-bg-primary flex items-center justify-center transition-colors duration-500"
           >
             <motion.button
               onClick={() => setIsRevealed(true)}
@@ -95,8 +95,8 @@ export default function Hero() {
               whileTap={{ scale: 0.98 }}
               className="group relative"
             >
-              <div className="absolute -inset-8 border border-white/5 rounded-full scale-90 group-hover:scale-100 opacity-0 group-hover:opacity-100 transition-all duration-700" />
-              <span className="text-[10px] uppercase tracking-[0.8em] text-white/50 group-hover:text-white transition-colors duration-500">
+              <div className="absolute -inset-8 border border-border-subtle rounded-full scale-90 group-hover:scale-100 opacity-0 group-hover:opacity-100 transition-all duration-700" />
+              <span className="text-[10px] uppercase tracking-[0.8em] text-accent-secondary group-hover:text-accent-primary transition-colors duration-500">
                 Reveal Invitation
               </span>
             </motion.button>
@@ -111,13 +111,13 @@ export default function Hero() {
             initial={{ scaleY: 1 }}
             animate={{ scaleY: 0 }}
             transition={{ duration: 1.8, ease: [0.77, 0, 0.175, 1] }}
-            className="absolute inset-0 bg-black origin-top"
+            className="absolute inset-0 bg-bg-primary origin-top"
           />
           <motion.div
             initial={{ scaleY: 1 }}
             animate={{ scaleY: 0 }}
             transition={{ duration: 1.8, ease: [0.77, 0, 0.175, 1] }}
-            className="absolute inset-0 bg-black origin-bottom"
+            className="absolute inset-0 bg-bg-primary origin-bottom"
           />
         </div>
       )}

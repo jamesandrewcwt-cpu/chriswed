@@ -15,7 +15,7 @@ export default function Blessings() {
   };
 
   return (
-    <section className="section-container bg-black border-t border-white/5">
+    <section className="section-container bg-bg-primary border-t border-border-subtle transition-colors duration-500">
       <div className="max-w-2xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -23,16 +23,16 @@ export default function Blessings() {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <div className="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center mx-auto mb-8">
-            <Heart className="w-6 h-6 text-white/40" />
+          <div className="w-16 h-16 rounded-full border border-border-subtle flex items-center justify-center mx-auto mb-8">
+            <Heart className="w-6 h-6 text-accent-secondary" />
           </div>
-          <span className="text-white/30 uppercase tracking-[0.4em] text-[10px] mb-8 block">
+          <span className="text-accent-secondary uppercase tracking-[0.4em] text-[10px] mb-8 block opacity-70">
             Share Your Love
           </span>
-          <h2 className="text-5xl md:text-6xl font-display text-white italic">
+          <h2 className="text-5xl md:text-6xl font-display text-accent-primary italic transition-colors duration-500">
             Blessings.
           </h2>
-          <p className="text-white/40 font-light mt-6 italic">
+          <p className="text-accent-secondary font-light mt-6 italic opacity-80">
             Your prayers and wishes mean the world to us.
           </p>
         </motion.div>
@@ -45,7 +45,7 @@ export default function Blessings() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="YOUR NAME"
-              className="w-full bg-transparent border-b border-white/10 py-4 text-white placeholder:text-white/10 focus:outline-none focus:border-white transition-colors tracking-widest text-xs"
+              className="w-full bg-transparent border-b border-border-subtle py-4 text-accent-primary placeholder:text-accent-secondary/30 focus:outline-none focus:border-accent-primary transition-colors tracking-widest text-xs"
             />
           </div>
           
@@ -56,7 +56,7 @@ export default function Blessings() {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               placeholder="YOUR MESSAGE / PRAYER"
-              className="w-full bg-transparent border-b border-white/10 py-4 text-white placeholder:text-white/10 focus:outline-none focus:border-white transition-colors tracking-widest text-xs resize-none"
+              className="w-full bg-transparent border-b border-border-subtle py-4 text-accent-primary placeholder:text-accent-secondary/30 focus:outline-none focus:border-accent-primary transition-colors tracking-widest text-xs resize-none"
             />
           </div>
 
@@ -69,7 +69,7 @@ export default function Blessings() {
             Send via WhatsApp
           </motion.button>
           
-          <p className="text-[10px] uppercase tracking-widest text-white/20 pt-4">
+          <p className="text-[10px] uppercase tracking-widest text-accent-secondary opacity-40 pt-4">
              Instant delivery to the family
           </p>
         </form>

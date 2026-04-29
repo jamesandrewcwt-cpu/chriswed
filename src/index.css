@@ -9,6 +9,8 @@
   
   --color-glass-border: rgba(255, 255, 255, 0.05);
   --color-glass-bg: rgba(255, 255, 255, 0.02);
+  --color-border-subtle: rgba(255, 255, 255, 0.1);
+  --color-overlay-bg: rgba(0, 0, 0, 0.4);
 
   --font-display: "Playfair Display", serif;
   --font-sans: "Inter", sans-serif;
@@ -33,6 +35,8 @@
   --color-bg-secondary: #f9fafb;
   --color-glass-border: rgba(0, 0, 0, 0.1);
   --color-glass-bg: rgba(0, 0, 0, 0.03);
+  --color-border-subtle: rgba(0, 0, 0, 0.1);
+  --color-overlay-bg: rgba(255, 255, 255, 0.4);
 }
 
 @layer base {
@@ -59,8 +63,8 @@
   }
 
   .minimal-button {
-    @apply px-12 py-4 border border-white/20 text-white font-light tracking-[0.2em] uppercase text-xs 
-    transition-all duration-500 hover:bg-white hover:text-black hover:border-white rounded-full;
+    @apply px-12 py-4 border border-border-subtle text-accent-primary font-light tracking-[0.2em] uppercase text-xs 
+    transition-all duration-500 hover:bg-accent-primary hover:text-bg-primary hover:border-accent-primary rounded-full;
   }
 }
 
