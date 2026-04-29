@@ -78,13 +78,18 @@ export default function Venue() {
               <div className="w-32 h-32 rounded-full border border-white/5 flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform duration-1000">
                 <MapPin className="w-8 h-8 text-white/10" />
               </div>
-              <p className="text-white/20 font-display italic text-2xl">The Grand Imperial</p>
+              <p className="text-white/20 font-display italic text-2xl">{weddingData.event.venue}</p>
             </div>
 
             {/* Interaction Layer */}
-            <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 backdrop-blur-sm">
+            <a 
+              href={weddingData.event.googleMapsLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 backdrop-blur-[2px] cursor-pointer"
+            >
                <span className="minimal-button">View Interactive Map</span>
-            </div>
+            </a>
           </motion.div>
         </div>
       </div>
