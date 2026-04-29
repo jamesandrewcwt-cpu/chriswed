@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+import { ExternalLink } from 'lucide-react';
 import { weddingData } from '../../data/content';
 
 export default function Footer() {
@@ -40,9 +42,18 @@ export default function Footer() {
                 href="https://portfolio-blue-nu-31.vercel.app/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="signature-link italic lowercase tracking-normal text-accent-primary text-3xl ml-3 transition-all duration-500 hover:scale-110 hover:opacity-100 hover:text-accent-primary inline-block relative pb-1"
+                className="signature-link italic lowercase tracking-normal text-accent-primary text-3xl ml-3 transition-all duration-500 hover:scale-105 hover:opacity-100 hover:text-accent-primary inline-flex items-center relative pb-1 group/link"
               >
                 James Andrew
+                <motion.span
+                  animate={{ opacity: [0.2, 0.6, 0.2] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="ml-3"
+                >
+                  <ExternalLink className="w-4 h-4 opacity-40 group-hover/link:opacity-100 transition-opacity" />
+                </motion.span>
+                {/* Permanent subtle underline */}
+                <div className="absolute bottom-0 left-0 w-full h-px bg-accent-primary/20 group-hover/link:bg-accent-primary transition-colors" />
               </a>
             </p>
           </div>
