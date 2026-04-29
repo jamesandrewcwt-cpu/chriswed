@@ -7,7 +7,7 @@ export default function Footer() {
         {/* Monogram/Initial */}
         <div className="mb-20">
           <span className="text-[12vw] font-display text-accent-primary italic select-none opacity-20 transition-colors duration-500">
-            {weddingData.couple.groom.charAt(0)}{weddingData.couple.bride.charAt(0)}
+            {weddingData.couple.bride.charAt(0)}{weddingData.couple.groom.charAt(0)}
           </span>
         </div>
         
@@ -24,7 +24,7 @@ export default function Footer() {
 
           <div className="space-y-4">
             <p className="text-accent-secondary opacity-60 text-sm uppercase tracking-[0.4em] font-light transition-colors duration-500">
-               © {weddingData.event.year} Wedding Celebration
+               © {weddingData.year} Wedding Celebration
             </p>
             <p className="text-accent-secondary opacity-40 text-xs font-light tracking-widest leading-relaxed italic transition-colors duration-500">
               Help: {weddingData.contact.person} {weddingData.contact.phone}
@@ -33,14 +33,14 @@ export default function Footer() {
 
           {/* Developer Credit - Signature Style */}
           <div className="mt-24 pt-12 border-t border-border-subtle w-full">
-            <p className="text-xs uppercase tracking-[0.8em] text-accent-secondary opacity-40 font-light group transition-all duration-700 hover:text-accent-primary">
-              Designed & Developed with absolute precision by 
+            <p className="text-[10px] uppercase tracking-[0.6em] text-accent-secondary opacity-40 font-light group transition-all duration-700">
+              Crafted with absolute precision by 
               <br className="md:hidden" />
               <a 
                 href="https://portfolio-blue-nu-31.vercel.app/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="signature-link italic lowercase tracking-normal text-accent-primary text-2xl ml-2 transition-colors duration-500"
+                className="signature-link italic lowercase tracking-normal text-accent-primary text-3xl ml-3 transition-all duration-500 hover:scale-110 hover:opacity-100 hover:text-accent-primary inline-block relative pb-1"
               >
                 James Andrew
               </a>
